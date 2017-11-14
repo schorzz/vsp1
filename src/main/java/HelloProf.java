@@ -1,4 +1,6 @@
 import dto.BroadcastInfo;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import java.io.*;
 import java.net.*;
@@ -20,6 +22,9 @@ public class HelloProf {
 
     private QuestRepro questRepro;
     private String locationPath= "/map/";
+
+    private Quest todoQuest;
+    private Integer taskNr;
 
 
 
@@ -160,6 +165,11 @@ public class HelloProf {
 
     }
 
+    /**
+     * holt sich die Location - also das komplette Object vom Blackboard
+     * @param location
+     */
+
     public void getLocation(String location){
         try {
 
@@ -177,7 +187,7 @@ public class HelloProf {
                 //throw new RuntimeException("Failed : HTTP error code : "
                 //      + conn.getResponseCode());
                 //System.out.println("Fehlercode: "+conn.getResponseCode()+"\nFehlertext: "+conn.getResponseMessage());
-                Log.logDebug("User:login() ->"+"Fehlercode: "+conn.getResponseCode()+"\nFehlertext: "+conn.getResponseMessage());
+                Log.logDebug("HelloProf:getLocation() ->"+"Fehlercode: "+conn.getResponseCode()+"\nFehlertext: "+conn.getResponseMessage());
 
 
             }
@@ -191,7 +201,31 @@ public class HelloProf {
                 obj+=output;
             }
             Log.log(Log.LINE);
-            Log.log("Objekt:\n"+obj);
+            Log.logDebug("HelloProf:getLocation() -> parsen der JSONObjekte");
+            JSONObject jasonObj = new JSONObject(obj);
+            JSONObject jasonObject = new JSONObject(jasonObj.get("object"));
+
+            Log.log("jsonObj: "+jasonObj);
+            Log.log("jsonobject: "+jasonObject.toString());
+
+            String host = jasonObject.get("host").toString();
+            String name = jasonObject.get("name").toString();
+
+            Log.log("Info from \""+location+"\":");
+            Log.log("host: "+host);
+            Log.log("name: "+name);
+
+            //Log.log("Objekt:\n"+obj);
+
+
+
+
+
+            //json parsen und dann
+            // host
+            // name
+            //rausparsen
+
             Log.log(Log.LINE);
 
             conn.disconnect();
@@ -206,6 +240,9 @@ public class HelloProf {
         }
     }
 
+    /**
+     * erstellt einen user wenn es ihn noch nicht gibt
+     */
     public void createUser(){
         //sammelt Datenum einen neuen User anzulegen
         Console c = System.console();
@@ -237,6 +274,10 @@ public class HelloProf {
         }
 
     }
+
+    /**
+     * hier muss der user seine Daten eingeben um sich einzuloggen
+     */
     public void loginUser(){
         //loggt einen user ein
         Console c = System.console();
@@ -272,6 +313,10 @@ public class HelloProf {
         }
 
     }
+
+    /**
+     * Der HilfeDialog der die kommandos anzeigt
+     */
     private void helpDialog(){
         Log.logDebug("HelloProf:helpDialog()--> betreten. Zeige Dialog..");
 
@@ -280,8 +325,8 @@ public class HelloProf {
         Log.log("\"login\" - you can login with an existing user");
         Log.log("\"help\" - shows this dialog");
         Log.log("\"getQuests\" - gets a questlist");
-        Log.log("\"getTask\" - gets a questlist. add a ID as parameter");
-        Log.log("\"getLocation\" - gets the location");
+        Log.log("\"getTask <id>\" - gets a tasklist for a quest. Add a ID as parameter");
+        Log.log("\"getLocation <id>\" - gets the location of a Task. <id> is the TaskId");
         Log.log("\"quit\" - exits this program");
 
     }
@@ -323,6 +368,11 @@ public class HelloProf {
     */
 
         return questRepro.getTasks(id);
+    }
+    public void doQuest(Integer id){
+        Log.logDebug("QuestRepro:doQuest-->parsen des Jsonobjektes");
+
+
     }
 
 /*
