@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/haw.vs.iml" filepath="$PROJECT_DIR$/.idea/modules/haw.vs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/haw.vs_main.iml" filepath="$PROJECT_DIR$/.idea/modules/haw.vs_main.iml" group="haw.vs" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/haw.vs_test.iml" filepath="$PROJECT_DIR$/.idea/modules/haw.vs_test.iml" group="haw.vs" />
+    </modules>
+  </component>
+</project>
