@@ -23,8 +23,9 @@ public class HelloProf {
     private QuestRepro questRepro;
     private String locationPath= "/map/";
 
-    private Quest todoQuest;
-    private Integer taskNr;
+    private Quest todoQuest=null;
+    private Integer taskNr=null;
+    private Task todoTask=null;
 
 
 
@@ -118,7 +119,7 @@ public class HelloProf {
                 game.helpDialog();
             }else if(input.startsWith("getQuests")){
                 game.getQuests();
-            }else if(input.startsWith("getTasks")){
+            }else if(input.startsWith("getTasks") || input.startsWith("getTask")){
                 //die ID die dann folgt extrahieren und dann die
                 String[]tmp = input.split(" ");
 
@@ -135,7 +136,22 @@ public class HelloProf {
                     game.getLocation(tmp[1]);
                 }
 
-            }else if(input.equals("quit") || input.equals("exit")){
+            }else if(input.startsWith("doQuest")){
+                String[]tmp = input.split(" ");
+
+                if(tmp.length>1){
+                    game.getLocation(tmp[1]);
+                    Integer integer =new Integer(tmp[1]);
+
+                    if(integer!=null) {
+
+                        game.doQuest(integer);
+                    }else {
+                        Log.log("please insert a valid Integer");
+                    }
+                }
+            }
+            else if(input.equals("quit") || input.equals("exit")){
                 break;
             }
 
@@ -202,14 +218,21 @@ public class HelloProf {
             }
             Log.log(Log.LINE);
             Log.logDebug("HelloProf:getLocation() -> parsen der JSONObjekte");
+
             JSONObject jasonObj = new JSONObject(obj);
+
+            Log.log("jasonObj.get(\"object\"): "+jasonObj.get("object"));
+            Log.log("");
             JSONObject jasonObject = new JSONObject(jasonObj.get("object"));
 
             Log.log("jsonObj: "+jasonObj);
             Log.log("jsonobject: "+jasonObject.toString());
 
-            String host = jasonObject.get("host").toString();
-            String name = jasonObject.get("name").toString();
+            //String host = jasonObject.get("host").toString();
+            //String name = jasonObject.get("name").toString();
+
+            String host = jasonObj.get("host").toString();
+            String name = jasonObj.get("name").toString();
 
             Log.log("Info from \""+location+"\":");
             Log.log("host: "+host);
@@ -369,8 +392,36 @@ public class HelloProf {
 
         return questRepro.getTasks(id);
     }
+
     public void doQuest(Integer id){
         Log.logDebug("QuestRepro:doQuest-->parsen des Jsonobjektes");
+
+        //eine Quest Auswählen.
+
+
+
+        todoQuest=questRepro.getQuest(id);
+
+        if(todoQuest==null){
+            Log.log("no valid ID");
+            return;
+        }
+
+        if(taskNr==null){
+            taskNr=0;
+        }
+
+        todoTask=todoQuest.getTaskliste().get(taskNr);
+
+        if(todoTask==null){
+            Log.logDebug("HelloProf:doQuest --> Quest hat keine Tasks !IMPOSSIBLE?!");
+            Log.log("fatal internal error! Quest got no Tasks");
+            return;
+        }
+        Log.log("Task: "+todoTask);
+
+        //hier jetzt zu "location" gehen und den host holen.
+        //dann mit host+ressource(/wounded) zu Host und Quest machen..
 
 
     }

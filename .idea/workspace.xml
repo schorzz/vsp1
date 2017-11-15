@@ -90,32 +90,14 @@
           <file leaf-file-name="HelloProf.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/HelloProf.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="575">
-                  <caret line="207" column="40" lean-forward="false" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
+                <state relative-caret-position="696">
+                  <caret line="149" column="62" lean-forward="false" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
                   <folding>
                     <element signature="imports" expanded="true" />
-                    <element signature="method#main#0;class#HelloProf#0" expanded="false" />
                     <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
                     <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-                    <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
                     <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
                     <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Task.java" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/src/main/java/Task.java">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="544">
-                  <caret line="48" column="40" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-                  <folding>
-                    <element signature="e#596#597#0" expanded="true" />
-                    <element signature="e#621#622#0" expanded="true" />
-                    <element signature="e#1079#1080#0" expanded="true" />
-                    <element signature="e#1140#1141#0" expanded="true" />
-                    <element signature="e#1192#1193#0" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -799,12 +781,12 @@
       <workItem from="1510507116278" duration="16273000" />
       <workItem from="1510528765341" duration="181000" />
       <workItem from="1510602365571" duration="5162000" />
-      <workItem from="1510663314314" duration="6563000" />
+      <workItem from="1510663314314" duration="8270000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61913000" />
+    <option name="totallyTimeSpent" value="63620000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1134" extended-state="6" />
@@ -914,10 +896,8 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#HelloProf#0" expanded="false" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
             <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-            <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
           </folding>
@@ -999,10 +979,8 @@
           <caret line="223" column="40" lean-forward="false" selection-start-line="223" selection-start-column="40" selection-end-line="223" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#HelloProf#0" expanded="false" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
             <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-            <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
           </folding>
@@ -1084,10 +1062,8 @@
           <caret line="108" column="68" lean-forward="false" selection-start-line="108" selection-start-column="68" selection-end-line="108" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#HelloProf#0" expanded="false" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
             <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-            <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
           </folding>
@@ -1205,10 +1181,8 @@
           <caret line="108" column="68" lean-forward="false" selection-start-line="108" selection-start-column="68" selection-end-line="108" selection-end-column="68" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#HelloProf#0" expanded="false" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
             <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-            <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
           </folding>
@@ -1433,20 +1407,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="48" column="40" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding>
-            <element signature="e#596#597#0" expanded="true" />
-            <element signature="e#621#622#0" expanded="true" />
-            <element signature="e#1079#1080#0" expanded="true" />
-            <element signature="e#1140#1141#0" expanded="true" />
-            <element signature="e#1192#1193#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
@@ -1477,16 +1437,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Task.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="48" column="40" lean-forward="false" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+          <folding>
+            <element signature="e#1079#1080#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HelloProf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="575">
-          <caret line="207" column="40" lean-forward="false" selection-start-line="207" selection-start-column="40" selection-end-line="207" selection-end-column="40" />
+        <state relative-caret-position="696">
+          <caret line="149" column="62" lean-forward="false" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#HelloProf#0" expanded="false" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
             <element signature="method#loginUser#0;class#HelloProf#0" expanded="false" />
-            <element signature="method#helpDialog#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getQuests#0;class#HelloProf#0" expanded="false" />
             <element signature="method#getTaskFromQuest#0;class#HelloProf#0" expanded="false" />
           </folding>
