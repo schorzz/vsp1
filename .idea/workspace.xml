@@ -90,8 +90,8 @@
           <file leaf-file-name="HelloProf.java" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/main/java/HelloProf.java">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="696">
-                  <caret line="149" column="62" lean-forward="false" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
+                <state relative-caret-position="575">
+                  <caret line="403" column="35" lean-forward="true" selection-start-line="403" selection-start-column="35" selection-end-line="403" selection-end-column="35" />
                   <folding>
                     <element signature="imports" expanded="true" />
                     <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />
@@ -781,12 +781,12 @@
       <workItem from="1510507116278" duration="16273000" />
       <workItem from="1510528765341" duration="181000" />
       <workItem from="1510602365571" duration="5162000" />
-      <workItem from="1510663314314" duration="8270000" />
+      <workItem from="1510663314314" duration="8696000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63620000" />
+    <option name="totallyTimeSpent" value="64046000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1134" extended-state="6" />
@@ -1449,8 +1449,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/HelloProf.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="149" column="62" lean-forward="false" selection-start-line="149" selection-start-column="62" selection-end-line="149" selection-end-column="62" />
+        <state relative-caret-position="575">
+          <caret line="403" column="35" lean-forward="true" selection-start-line="403" selection-start-column="35" selection-end-line="403" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#createUser#0;class#HelloProf#0" expanded="false" />

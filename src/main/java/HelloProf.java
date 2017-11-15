@@ -399,7 +399,10 @@ public class HelloProf {
         //eine Quest Auswählen.
 
 
-
+        if(questRepro==null){
+            questRepro=new QuestRepro(bci);
+            questRepro.getQuests();
+        }
         todoQuest=questRepro.getQuest(id);
 
         if(todoQuest==null){
