@@ -140,7 +140,7 @@ public class HelloProf {
                 String[]tmp = input.split(" ");
 
                 if(tmp.length>1){
-                    game.getLocation(tmp[1]);
+                    //game.getLocation(tmp[1]);
                     Integer integer =new Integer(tmp[1]);
 
                     if(integer!=null) {
