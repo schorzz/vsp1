@@ -122,6 +122,7 @@ public class Questing {
 
 			Resty rest = new Resty();
 			rest.withHeader("Authorization", "Token " + token);
+
 			String visitHost_ausgabe = rest.text(hostToVisit).toString();
 			System.out.println(visitHost_ausgabe);
 			//muss noch Costumized werden, nur fuer quest 1 zZ
