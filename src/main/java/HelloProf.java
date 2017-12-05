@@ -30,6 +30,7 @@ public class HelloProf {
     private Quest todoQuest=null;
     private Integer taskNr=null;
     private Task todoTask=null;
+    private static boolean udpListen=true;
 
 
 
@@ -45,6 +46,8 @@ public class HelloProf {
 
                 if(args[i].equals("-debug")){
                     Log.setDebug(true);
+                }else if(args[i].equals("-noudp")){
+                    udpListen=false;
                 }
                 /*else if(args[i].equals("-debug")){
 
@@ -73,7 +76,21 @@ public class HelloProf {
 */
         UDPPackageFetcher upf = new UDPPackageFetcher(24000);
 
-        bci = upf.fetch();
+
+
+        if(!udpListen) {
+//            bci = upf.fetch();
+            try {
+                bci=new BroadcastInfo();
+                bci.setAdresse(InetAddress.getByName("172.19.0.7"));
+                bci.setBlackboard_port(5000);
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            }
+        }else{
+            bci = upf.fetch();
+        }
+
 
         //System.out.println("url von broadcastinfo: \""+info.getURL()+"\"");
         Log.logDebug("url von broadcastinfo: \""+bci.getURL()+"\"");
@@ -156,7 +173,8 @@ public class HelloProf {
                 }
             }
             else if(input.equals("quit") || input.equals("exit")){
-                break;
+                return;
+//                break;
             }
 
 
@@ -407,10 +425,11 @@ public class HelloProf {
             questRepro=new QuestRepro(bci);
             questRepro.getQuests();
         }
+        Log.logDebug("HelloProf:doQuest()-->questRepro questlistSize: "+questRepro.questlistSize());
         todoQuest=questRepro.getQuest(id);
 
         if(todoQuest==null){
-            Log.log("no valid ID");
+            Log.log(""+id+" is no valid ID or no Quest with this id is not aviable..");
             return;
         }
 
@@ -447,6 +466,7 @@ public class HelloProf {
 
                 if(user.isLoggedIn()){
                     //dann mit host+ressource(/wounded) zu Host und Quest machen..
+                    Log.logDebug("HelloProf:doQuest(): wenn user eingeloggt dann ");
                     String hostToVisit = "http://"+task.getHost()+task.getRessource();
                     Resty resty = new Resty();
                     resty.withHeader("Authorization",user.getAuthorisationToken());
@@ -455,6 +475,7 @@ public class HelloProf {
 
                     us.monoid.json.JSONObject questSolved_json;
                     try {
+                        Log.logDebug("HelloProf:doQuest(): parse token aus antwort");
                         questSolved_json = new us.monoid.json.JSONObject(taskText);
                         task.setToken(questSolved_json.getString("token").toString());
                     } catch (JSONException e) {

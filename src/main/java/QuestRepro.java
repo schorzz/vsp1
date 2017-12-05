@@ -67,7 +67,7 @@ public class QuestRepro {
             Log.logDebug("QuestRepro:getQuests-->parsen des Jsonobjektes");
             //JSONArray jsonarray = new JSONArray(obj);
             JSONArray jsonarray = new JSONArray(jasonObj.get("objects").toString());
-            Log.logDebug("QuestRepro:getQuests-->jsonarray länge:"+jsonarray.length());
+            Log.logDebug("QuestRepro:getQuests-->jsonarray laenge:"+jsonarray.length());
             Log.logDebug("QuestRepro:getQuests-->jsonarray:"+jsonarray);
 
             Log.log("quests");
@@ -216,11 +216,16 @@ public class QuestRepro {
     public Quest getQuest(Integer id){
 
         for(Quest e:questListe){
+            Log.logDebug("QuestRepro:getQuests()--> questID: "+e.getId());
             if(e.getId()==id){
                 return e;
             }
         }
         return null;
 
+    }
+    public Integer questlistSize(){
+        if(questListe==null){return null;}
+        return questListe.size();
     }
 }
