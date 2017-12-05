@@ -160,6 +160,10 @@ public class User {
         return null;
     }
 
+    /**
+     *
+     * @return "Token ****"
+     */
     public String getAuthorisationToken() {
         return "Token "+authorisationToken;
     }

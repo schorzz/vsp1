@@ -11,7 +11,7 @@ task FatJar(type: Jar){
                 'Main-Class':'HelloProf'
     }
     archiveName = "vsp_aby705.jar"
-    destinationDir = file("G:\\Projekte\\Java\\VerteilteSysteme\\build\\libs")
+    destinationDir = file(".\\build\\libs")
 
     into("lib"){
         project.subprojects.each {
@@ -34,6 +34,6 @@ dependencies {
 
     compile group: 'org.json', name: 'json', version: '20160810'
     // https://mvnrepository.com/artifact/us.monoid.web/resty
-    compile group: 'us.monoid.web', name: 'resty', version: '0.3.1'
+    compile group: 'us.monoid.web', name: 'resty', version: '0.3.2'
 
 }

@@ -5,6 +5,8 @@ public class Task {
     private String ressource;
     private String location;
     private Integer requiredPlayer;
+    private String token ="";
+    private String host=null;
 
     public Task(String name, Integer id, String ressource, String location, Integer requiredPlayer) {
         this.name = name;
@@ -50,6 +52,22 @@ public class Task {
         return requiredPlayer;
     }
 
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public void setHost(String host) {
+        this.host = host;
+    }
+
     public void setRequiredPlayer(Integer requiredPlayer) {
         this.requiredPlayer = requiredPlayer;
     }
@@ -63,4 +81,12 @@ public class Task {
                 ", location='" + location + '\'' +
                 '}';
     }
+
+    /*
+    public void loesen(){
+
+        String ort ="";
+
+    }
+    */
 }

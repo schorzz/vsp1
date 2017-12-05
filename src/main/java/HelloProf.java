@@ -1,11 +1,15 @@
 import dto.BroadcastInfo;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import us.monoid.json.JSONException;
+import us.monoid.web.Resty;
 
 import java.io.*;
 import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
+
+import static us.monoid.web.Resty.content;
 
 public class HelloProf {
 
@@ -414,6 +418,7 @@ public class HelloProf {
             taskNr=0;
         }
 
+
         todoTask=todoQuest.getTaskliste().get(taskNr);
 
         if(todoTask==null){
@@ -421,10 +426,68 @@ public class HelloProf {
             Log.log("fatal internal error! Quest got no Tasks");
             return;
         }
-        Log.log("Task: "+todoTask);
 
         //hier jetzt zu "location" gehen und den host holen.
-        //dann mit host+ressource(/wounded) zu Host und Quest machen..
+        for(Task task : todoQuest.getTaskliste()){
+            Log.log("Task: "+todoTask);
+
+            Resty rest = new Resty();
+            try {
+
+                //location ist z.b. MAP
+                String map = rest.text(task.getLocation()).toString();
+                //System.out.println(map);
+                us.monoid.json.JSONObject mapAsJson = new us.monoid.json.JSONObject(map);
+                String host = "http://" + mapAsJson.getJSONObject("object").getString("host").toString();
+                // System.out.println("Du findest den Ort \""+name+"\" hier: "+host);
+                Log.log("Task Host: "+host);
+//                System.out.println(host);
+//                return host;
+                task.setHost(host);
+
+                if(user.isLoggedIn()){
+                    //dann mit host+ressource(/wounded) zu Host und Quest machen..
+                    String hostToVisit = "http://"+task.getHost()+task.getRessource();
+                    Resty resty = new Resty();
+                    resty.withHeader("Authorization",user.getAuthorisationToken());
+
+                    String taskText=resty.text(hostToVisit,content("")).toString();
+
+                    us.monoid.json.JSONObject questSolved_json;
+                    try {
+                        questSolved_json = new us.monoid.json.JSONObject(taskText);
+                        task.setToken(questSolved_json.getString("token").toString());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+
+                }else{
+                    Log.log("doQuest(): User ist nicht eingeloggt");
+                }
+
+
+
+            } catch (Exception e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+
+
+
+
+
+
+        }
+
+        //ab hier alle tokens abgeben
+
+
+
+
+
+
+
 
 
     }
