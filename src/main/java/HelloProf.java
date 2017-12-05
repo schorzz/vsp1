@@ -454,12 +454,14 @@ public class HelloProf {
             try {
 
                 //location ist z.b. MAP
-                String map = rest.text(task.getLocation()).toString();
+                String anUri=bci.getURL()+task.getLocation();
+                Log.logDebug("HelloProf:doQuest()--> abfrage der Location: \""+anUri+"\" um den Host");
+                String map = rest.text(anUri).toString();
                 //System.out.println(map);
                 us.monoid.json.JSONObject mapAsJson = new us.monoid.json.JSONObject(map);
                 String host = "http://" + mapAsJson.getJSONObject("object").getString("host").toString();
                 // System.out.println("Du findest den Ort \""+name+"\" hier: "+host);
-                Log.log("Task Host: "+host);
+                Log.logDebug("HelloProf:doQuest()-->Task Host: "+host);
 //                System.out.println(host);
 //                return host;
                 task.setHost(host);
@@ -467,7 +469,8 @@ public class HelloProf {
                 if(user.isLoggedIn()){
                     //dann mit host+ressource(/wounded) zu Host und Quest machen..
                     Log.logDebug("HelloProf:doQuest(): wenn user eingeloggt dann ");
-                    String hostToVisit = "http://"+task.getHost()+task.getRessource();
+//                    String hostToVisit = "http://"+task.getHost()+task.getRessource();
+                    String hostToVisit = task.getHost()+task.getRessource();
                     Resty resty = new Resty();
                     resty.withHeader("Authorization",user.getAuthorisationToken());
 
@@ -498,9 +501,31 @@ public class HelloProf {
 
 
 
-
+            Log.logDebug("HelloProf:doQuest()--> token ist: "+task.getToken());
         }
 
+
+
+
+        String tokenJSON = "{\"tokens\":";
+
+        boolean komma=false;
+
+        for(Task e : todoQuest.getTaskliste()){
+            if(komma){tokenJSON=tokenJSON+",";}else{komma=true;}
+            tokenJSON=tokenJSON+"{\"/blackboard/tasks/"+e.getId()+"\":\""+e.getToken()+"\"}";
+        }
+
+            tokenJSON=tokenJSON+"}";
+
+        Log.logDebug("\nHelloProf:doQuest()--> tokenJSON:\n"+tokenJSON+"\n");
+
+
+
+
+
+        //Hier jetzt die tokenliste erstellen und dann abgeben
+        //task-uri: /blackboard/tasks/{id}
         //ab hier alle tokens abgeben
 
 

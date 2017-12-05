@@ -216,8 +216,8 @@ public class QuestRepro {
     public Quest getQuest(Integer id){
 
         for(Quest e:questListe){
-            Log.logDebug("QuestRepro:getQuests()--> questID: "+e.getId());
-            if(e.getId()==id){
+            Log.logDebug("QuestRepro:getQuests()--> questID: "+e.getId()+" uebergebene id: "+id);
+            if(e.getId().equals(id)){
                 return e;
             }
         }
