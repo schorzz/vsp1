@@ -6,7 +6,7 @@ public class Log {
 
     public static void log(String logString){
         if(log) {
-            System.out.println(logString);
+            System.out.println("\t"+logString);
         }
     }
 

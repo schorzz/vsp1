@@ -372,6 +372,7 @@ public class HelloProf {
         Log.log("\"getQuests\" - gets a questlist");
         Log.log("\"getTask <id>\" - gets a tasklist for a quest. Add a ID as parameter");
         Log.log("\"getLocation <id>\" - gets the location of a Task. <id> is the TaskId");
+        Log.log("\"doQuest <id>\" - Does the quest. <id> is the QuestId");
         Log.log("\"quit\" - exits this program");
 
     }
@@ -521,7 +522,17 @@ public class HelloProf {
         Log.logDebug("\nHelloProf:doQuest()--> tokenJSON:\n"+tokenJSON+"\n");
 
 
+        Resty resty = new Resty();
 
+        resty.withHeader("Authorization", user.getAuthorisationToken());
+        try {
+            Log.logDebug("HelloProf:doQuest()--> liefere Token nach \""+bci.getURL()+"/blackboard/quests/"+todoQuest.getId()+"/deliveries\" aus.");
+           Log.log("\n");
+            Log.log(resty.text(bci.getURL()+"/blackboard/quests/"+todoQuest.getId()+"/deliveries",content(tokenJSON)).toString());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
         //Hier jetzt die tokenliste erstellen und dann abgeben
